@@ -6,6 +6,7 @@ import * as compression from 'compression';
 import * as cors from 'cors';
 import * as dotenv from 'dotenv';
 import * as mongoose from 'mongoose';
+import router from './router';
 
 // Criando app e prepanado para uso
 const app = express();
@@ -37,3 +38,6 @@ const MONGO_URL = `mongodb+srv://${user}:${pass}@cluster0.8u7ji4l.mongodb.net/?r
 mongoose.Promise;
 mongoose.connect(MONGO_URL);
 mongoose.connection.on('error', (error: Error) => console.log(error));
+
+// Adicionando os routers
+app.use('/', router());
