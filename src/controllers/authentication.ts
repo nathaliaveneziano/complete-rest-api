@@ -34,7 +34,7 @@ export const login = async (req: express.Request, res: express.Response) => {
 
     await user.save();
 
-    res.cookie('NATH-DEV', user.authentication.sessionToken, {
+    res.cookie('NATH-DEV-AUTH', user.authentication.sessionToken, {
       domain: 'localhost',
       path: '/',
     });
